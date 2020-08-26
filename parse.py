@@ -20,4 +20,4 @@ while True:
 		imageLinks = article.images
 		if isinstance(imageLinks, set):
 		    imageLinks = list(imageLinks)
-		r.publish('parsed_urls', json.dumps({"article": text, "image_links": imageLinks, "url": url}))
+		r.publish('parsed_urls', json.dumps({"article": text, "image_links": imageLinks, "url": url, "lng": lng}))
