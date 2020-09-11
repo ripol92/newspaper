@@ -1,6 +1,7 @@
 from newspaper import Article
 import redis
 import json
+import time
 
 r = redis.Redis(host='localhost', port=6379, db=0)
 p = r.pubsub()
@@ -21,3 +22,4 @@ while True:
 		if isinstance(imageLinks, set):
 		    imageLinks = list(imageLinks)
 		r.publish('parsed_urls', json.dumps({"article": text, "image_links": imageLinks, "url": url, "lng": lng}))
+	time.sleep(0.2) 
